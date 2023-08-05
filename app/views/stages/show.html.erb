@@ -1,1 +1,2 @@
-<p><%= @stage.board %></p>
+<p><%= @stage.board.gsub(/\n/, '<br>').html_safe %></p>
+<p><%= link_to "編集", edit_stage_path(@stage.id) %></p>

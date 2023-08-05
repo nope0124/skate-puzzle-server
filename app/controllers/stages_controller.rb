@@ -17,6 +17,16 @@ class StagesController < ApplicationController
         @stage = Stage.find(params[:id])
     end
 
+    def edit
+        @stage = Stage.find(params[:id])
+    end
+
+    def update
+        @stage = Stage.find(params[:id])
+        @stage.update(stage_params)
+        redirect_to stage_path(@stage.id)
+    end
+
     private
     def stage_params
         params.require(:stage).permit(:board)

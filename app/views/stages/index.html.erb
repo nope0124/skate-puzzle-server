@@ -1,3 +1,21 @@
-<% @stages.each do |stage| %>
-    <p><%= stage.board %></p>
-<% end %>
+<table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>ステージID</th>
+            <th>ステージ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @stages.each do |stage| %>
+            <tr>
+                <td>
+                    <%= stage.id %>
+                </td>
+                <td>
+                    <%= stage.board.gsub(/\n/, '<br>').html_safe %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "New Stage", new_stage_path, class: "btn btn-primary" %>
