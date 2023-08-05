@@ -1,0 +1,9 @@
+<%= form_with model:@stage, local:true do |f| %>
+    <div>
+        <%= f.label :board %>
+        <%= f.text_area :board %>
+    </div>
+    <div>
+        <%= f.submit "Create Stage" %>
+    </div>
+<% end %>
