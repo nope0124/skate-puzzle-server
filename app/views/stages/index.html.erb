@@ -1,18 +1,23 @@
+<p>ステージ一覧</p>
 <table class="table table-hover table-inverse">
     <thead>
         <tr>
             <th>ステージID</th>
             <th>ステージ</th>
+            <th>到達人数</th>
         </tr>
     </thead>
     <tbody>
         <% @stages.each do |stage| %>
             <tr>
                 <td>
-                    <%= stage.id %>
+                    <%= link_to stage.id, stage_path(stage.id) %>
                 </td>
                 <td>
-                    <%= stage.board.gsub(/\n/, '<br>').html_safe %>
+                    <%= display_stage(stage.board) %>
+                </td>
+                <td>
+                    <%= stage.users.length %> / <%= @users.length %>
                 </td>
             </tr>
         <% end %>

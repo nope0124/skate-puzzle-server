@@ -11,6 +11,7 @@ class StagesController < ApplicationController
     
     def index
         @stages = Stage.all
+        @users = User.all
     end
 
     def show

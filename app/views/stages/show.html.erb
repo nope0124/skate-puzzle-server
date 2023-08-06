@@ -1,2 +1,3 @@
-<p><%= @stage.board.gsub(/\n/, '<br>').html_safe %></p>
+<p><%= display_stage(@stage.board) %></p>
+<p><%= link_to "一覧に戻る", stages_path %></p>
 <p><%= link_to "編集", edit_stage_path(@stage.id) %></p>
