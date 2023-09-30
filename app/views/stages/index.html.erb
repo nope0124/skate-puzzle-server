@@ -4,20 +4,20 @@
         <tr>
             <th>ステージID</th>
             <th>ステージ</th>
-            <th>到達人数</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <% @stages.each do |stage| %>
             <tr>
                 <td>
-                    <%= link_to stage.id, stage_path(stage.id) %>
+                    <%= stage.id %>
                 </td>
                 <td>
                     <%= display_stage(stage.board) %>
                 </td>
                 <td>
-                    <%= stage.users.length %> / <%= @users.length %>
+                    <%= link_to "編集する", stage_path(stage.id) %>
                 </td>
             </tr>
         <% end %>
