@@ -59,3 +59,9 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+# API
+gem 'rack-cors'
+gem 'devise_token_auth'
+
+gem 'httpclient'
