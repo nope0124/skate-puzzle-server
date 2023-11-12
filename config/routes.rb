@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :stages, only: %i[new index create show edit update]
 end
