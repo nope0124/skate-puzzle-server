@@ -15,4 +15,5 @@ class Api::V1::Auth::SessionsController < ApplicationController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
+  
 end
