@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       namespace :auth do
         resources :sessions, only: %i[index]
       end
+
+      resources :stages, only: %i[new index create show edit update] do
+        resources :user_stage_progresses, only: %i[create]
+      end
     end
   end
 
