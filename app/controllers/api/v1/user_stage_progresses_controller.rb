@@ -2,6 +2,9 @@ class Api::V1::UserStageProgressesController < ApplicationController
   before_action :authenticate_api_v1_user!, except: %i[create destroy]
   
   def create
+    puts "params"
+    puts params
+    
     user_stage_progress = UserStageProgress.new
     user_stage_progress.stage_id = params[:stage_id]
     user_stage_progress.user_id = current_api_v1_user.id
@@ -18,6 +21,7 @@ class Api::V1::UserStageProgressesController < ApplicationController
   end
 
   def destroy
-    UserStageProgress.where(id: current_api_v1_user.id).destroy_all
+    UserStageProgress.where(user_id: current_api_v1_user.id).destroy_all
+    render json: { status: 200 }
   end
 end

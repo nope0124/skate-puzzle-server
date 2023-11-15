@@ -11,8 +11,10 @@ Rails.application.routes.draw do
         resources :sessions, only: %i[index]
       end
 
+      resources :users, only: %i[show], param: :user_name
+
       resources :stages, only: %i[new index create show edit update] do
-        resources :user_stage_progresses, only: %i[create destroy]
+        resource :user_stage_progresses, only: %i[create update destroy]
       end
     end
   end
