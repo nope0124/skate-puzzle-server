@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
+  validates :name, uniqueness: true
+
   has_many :user_stage_progresses
 end

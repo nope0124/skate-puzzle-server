@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
 
       resources :stages, only: %i[new index create show edit update] do
-        resources :user_stage_progresses, only: %i[create]
+        resources :user_stage_progresses, only: %i[create destroy]
       end
     end
   end
