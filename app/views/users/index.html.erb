@@ -1,0 +1,26 @@
+<p>ユーザーデータ一覧</p>
+<table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>ユーザーID</th>
+            <th>クリア状況</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td>
+                    <%= link_to user.name, user_path(user.id) %>
+                </td>
+                <td>
+                    <%= user.user_stage_progresses.count %> / <%= @stages_count %> 
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "New Stage", new_stage_path, class: "btn btn-primary" %>

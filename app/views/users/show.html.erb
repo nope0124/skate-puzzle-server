@@ -1,0 +1,34 @@
+<p>ユーザーID: <%= @user.name %>さんのデータ</p>
+<p><%= link_to "一覧に戻る", users_path %></p>
+
+<p>ステージ一覧</p>
+<table class="table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>ステージID</th>
+            <th>ステージ</th>
+            <th>スコア</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @stages.each do |stage| %>
+            <tr>
+                <td>
+                    <%= stage.id %>
+                </td>
+                <td>
+                    <%= display_stage(stage.board) %>
+                </td>
+                <td>
+                    <%= @progresses[stage.id - 1] %> / 3
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "New Stage", new_stage_path, class: "btn btn-primary" %>
+
