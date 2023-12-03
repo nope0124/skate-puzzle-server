@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   resources :stages, only: %i[new index create show edit update]
   resources :users, only: %i[index show]
+  root to: "stages#index"
 end
