@@ -11,8 +11,11 @@ class StagesController < ApplicationController
 
   def create
     @stage = Stage.new(stage_params)
-    @stage.save
-    redirect_to stages_path
+    if @stage.save
+      redirect_to stages_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -29,8 +32,11 @@ class StagesController < ApplicationController
 
   def update
     @stage = Stage.find(params[:id])
-    @stage.update(stage_params)
-    redirect_to stage_path(@stage.id)
+    if @stage.update(stage_params)
+      redirect_to stage_path(@stage.id)
+    else
+      render :edit
+    end
   end
 
   private
